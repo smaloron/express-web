@@ -1,0 +1,12 @@
+extends layout 
+
+block title 
+    title Formulaire de contact 
+
+block content 
+    .mt-3 
+        form(method="post")
+            .mb-2 
+                label.form-label Votre nom 
+                input.form-control(name="name" type="text" value=name)
+            button.btn.btn-primary.w-100 Valider

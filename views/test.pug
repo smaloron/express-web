@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    h1 Ceci est un test 
+    h2 bonjour #[code #{name}] vous avez #[em #{age} ans]
+    ul 
+        li Pommes 
+        li Poires 
+    if age > 50
+        h3 trop vieux 
+    else 
+        h3 trop jeune
+
+    unless age == 50
+        h3 Tout va bien
+
+    ul 
+        each item in languages 
+            li #{item.name} (#{item.difficulty})
+
+    ul 
+        each person in photographers 
+            li #{person.firstName} #{person.name}

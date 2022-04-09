@@ -1,0 +1,9 @@
+extends layout 
+
+block content 
+    form(method="post" enctype="multipart/form-data")
+        .mb-3 
+            label.form-label Votre photo 
+            input.form-control(type="file" name="photo")
+            input(type="hidden", name="_csrf" value=token)
+        button.btn.btn-primary.w-100(type="submit") VALIDER
