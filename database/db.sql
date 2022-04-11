@@ -7,6 +7,6 @@ CREATE TABLE IF NOT EXISTS users(
     email VARCHAR(50) NOT NULL UNIQUE,
     hashed_password VARCHAR(128) NOT NULL,
     photo VARCHAR(80),
-    bio TEXT
+    bio TEXT,
     PRIMARY KEY (id)
 );
