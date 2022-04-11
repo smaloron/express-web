@@ -33,6 +33,14 @@ const DAO = function (tableName) {
         return results[0];
     };
 
+    const findOneBy = async (fieldName, value) => {
+        const results = await query(
+            'SELECT * FROM ?? WHERE ?? = ?',
+            [this.tableName, fieldName, value]
+        );
+        return results[0].length>0?results[0][0]: null;
+    };
+
     const find = async (search) => {
         let sql = 'SELECT * FROM ?? '
         searchData = [];
@@ -85,6 +93,7 @@ const DAO = function (tableName) {
         findAll,
         findOneById,
         findBy,
+        findOneBy,
         find,
         insert,
         update,

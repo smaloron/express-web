@@ -73,7 +73,24 @@ router.get('/secure/home', checkIfUserIsLoggedIn, (req, res) => {
     res.render('secure/home');
 });
 
-router.get
+router.get('/login', (req, res)=> {
+    res.render('security/login');
+});
+
+router.post('/login', async (req, res) => {
+    const user = await userDAO.findOneBy('email', req.body.email);
+    const ok = await bcrypt.compare(req.body.password, user.hashed_password);
+    if(ok){
+        req.flash('info', 'Vous êtes authentifié');
+        delete user.hashed_password;
+        req.session.user = user;
+        res.redirect('/secure/home');
+    } else {
+        req.flash('info', 'Vos infos de connexion sont incorrectes');
+        res.redirect('/login');
+    }
+});
+
 
 module.exports = router;
 

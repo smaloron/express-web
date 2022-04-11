@@ -1,0 +1,11 @@
+extends ../layout 
+
+block content 
+    form(method="post")
+        .mb-3 
+            label.form-label email 
+            input.form-control(type="email" name="email")
+        .mb-3 
+            label.form-label mot de passe 
+            input.form-control(type="password" name="password")
+        button.btn.btn-primary.w-100 Connexion
