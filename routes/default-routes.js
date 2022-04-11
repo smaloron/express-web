@@ -1,5 +1,8 @@
 const router = require('express').Router();
 
+const photoUploadManager = require('../middlewares/upload-middleware');
+const csrfProtection = require('csurf')();
+
 router.get('/test', (req, res) => {
     res.render('test', {
         pageTitle: 'Mon super titre',

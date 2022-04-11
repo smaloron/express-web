@@ -5,10 +5,6 @@ const cors = require('cors');
 
 const flash = require('express-flash-messages');
 
-const photoUploadManager = require('./middlewares/upload-middleware');
-
-const csrfProtection = require('csurf')();
-
 const app = express();
 
 // configuration de PUG
@@ -37,6 +33,7 @@ app.use(flash());
 
 // Routes
 app.use(require('./routes/default-routes'));
+app.use(require('./routes/security-routes'));
 
 
 app.use((error, req, res, next) => {
